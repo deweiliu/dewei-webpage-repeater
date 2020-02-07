@@ -25,7 +25,7 @@ SECRET_KEY = 'gvdrx)ywam693bc$o^b0z=jjey8-tjah13szsr_5035v+e59da'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*.deweiliu.com','localhost','127.0.0.1']
 
 
 # Application definition
