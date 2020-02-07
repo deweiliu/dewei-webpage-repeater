@@ -11,5 +11,5 @@ def parse_webpage(url):
     text = converter.handle(body)
 
     webpage['title']='Web title'
-    webpage['content']=text
+    webpage['body']=text
     return webpage
