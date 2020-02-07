@@ -5,6 +5,7 @@ from django.template import loader
 
 def repeat(request):
     url=request.GET.get('url')
+    print('xxx')
     print(url)
     webpage=parser.parse_webpage(url)
 
