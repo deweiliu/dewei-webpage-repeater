@@ -6,6 +6,7 @@ def parse_webpage(url):
 
     response=requests.get(url)
     body=response.text
+    
     converter = html2text.HTML2Text()
     converter.ignore_links = False
     text = converter.handle(body)

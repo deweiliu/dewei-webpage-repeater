@@ -1,0 +1,14 @@
+{% extends "repeater/layout.html" %}
+{% block title %}
+URL
+{% endblock %}
+{% block content %}
+<p>Enter the URL below</p>
+
+<form action="/" method="get">
+    <input type="text" name="url" size="200">
+</br>
+    <input type="submit" value="OK">
+</form>
+
+{% endblock %}

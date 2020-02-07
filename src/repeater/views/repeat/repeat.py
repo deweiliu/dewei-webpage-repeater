@@ -3,8 +3,9 @@ from repeater.views.repeat import decoder
 from repeater.views.repeat import parser
 from django.template import loader
 
-def repeat(request,encoded_url):
-    url=decoder.decode(encoded_url)
+def repeat(request):
+    url=request.GET.get('url')
+    print(url)
     webpage=parser.parse_webpage(url)
 
 
