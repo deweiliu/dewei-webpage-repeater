@@ -1,22 +1,16 @@
-import requests
-import html2text
+
 from repeater.views.repeat import complete_url
+from repeater.views.repeat import parser
 def repeat(url):
     url=complete_url.complete(url)
 
     webpage=dict()
 
-    try:
-        response=requests.get(url)
-    except:
+    p=parser.Parser(url)
+    if(not p.is_valid()):
         return None
-    body=response.text
-    
-    converter = html2text.HTML2Text()
-    converter.ignore_links = False
-    text = converter.handle(body)
 
-    webpage['title']='Web title'
-    webpage['body']=text
+    webpage['title']=p.get_title()
+    webpage['body']=p.get_body()
     webpage['message']="The following content was retrieved from %s"%url
     return webpage
