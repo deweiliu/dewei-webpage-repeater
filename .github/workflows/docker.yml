@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag deweiliu/searching:latest
+        docker build . --file Dockerfile --tag deweiliu/dewei-webpage-repeater:latest
         docker login --username deweiliu --password ${{ secrets.docker_access }}
-        docker push deweiliu/searching:latest
+        docker push deweiliu/dewei-webpage-repeater:latest
         docker logout
