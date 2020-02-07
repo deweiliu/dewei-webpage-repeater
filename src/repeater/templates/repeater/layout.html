@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
-<h3>{% block title %}{% endblock %}</h3>
-{% block content %}{% endblock %}
 
+<head>
+    <meta charset="UTF-8">
+    <title>Dewei Webpage Repeater - {{title}}</title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>Dewei Webpage Repeater</h1>
+
+    {% block body %}
+    {% endblock %}
 </body>
+
 </html>

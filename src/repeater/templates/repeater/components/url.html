@@ -1,14 +1,14 @@
-{% extends "repeater/layout.html" %}
+{% extends "repeater/components/component.html" %} 
 {% block title %}
 URL
 {% endblock %}
 {% block content %}
-<p>Enter the URL below</p>
-
+<p>Enter the URL below to view a webpage</p>
 <form action="/" method="get">
     <input type="text" name="url" size="200">
 </br>
     <input type="submit" value="OK">
 </form>
+<pre><p>{{url_message}}</p></pre>
 
 {% endblock %}
