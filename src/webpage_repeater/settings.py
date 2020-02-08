@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['.davecutting.uk', '.deweiliu.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'repeater.apps.RepeaterConfig',
 
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
