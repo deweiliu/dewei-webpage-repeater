@@ -1,16 +1,28 @@
 
 from repeater.views.repeat import complete_url
+from repeater.views.repeat import request
 from repeater.views.repeat import parser
 def repeat(url):
     url=complete_url.complete(url)
 
     webpage=dict()
+    r=request.Request(url)
 
-    p=parser.Parser(url)
-    if(not p.is_valid()):
-        return None
+    if(r.is_valid()):
+        
+        response=r.get_response()
+        p=parser.Parser(response)
+        webpage['title']=p.get_title()
+        webpage['body']=p.get_body()
+        webpage['status']="Success"
+        
 
-    webpage['title']=p.get_title()
-    webpage['body']=p.get_body()
-    webpage['info']="Time: %s\nURL: %s"%(p.get_time(),url)
+    else:
+        webpage['status']="Error. Cannot resolve the URL"
+        webpage['title']="N/A"
+        webpage['body']="N/A"
+
+
+    webpage['gmt_time']=r.get_time()
+    webpage['url']=url
     return webpage

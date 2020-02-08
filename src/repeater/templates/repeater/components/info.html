@@ -1,7 +1,10 @@
-{% extends "repeater/components/component.html" %} 
+{% extends "repeater/components/component.html" %}
 {% block title %}
 Webpage Information
 {% endblock %}
 {% block content %}
-<pre>{{info}}</pre>
+<p><strong>Time: </strong>{{gmt_time}}</p>
+<p><strong>URL: </strong>{{url}}</p>
+<p><strong>Status: </strong>{{status}}</p>
+<p><strong>Page Title: </strong>{{title}}</p>
 {% endblock %}

@@ -1,3 +1,4 @@
 django>=2.2,<3
 html2text
 requests>=2.22,<3
+beautifulsoup4>=4.8,<5

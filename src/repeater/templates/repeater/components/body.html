@@ -3,5 +3,7 @@
 Page Content
 {% endblock %}
 {% block content %}
-<pre>{{body}}</pre>
+{% autoescape off %}
+{{body}}
+{% endautoescape %}
 {% endblock %}
