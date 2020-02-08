@@ -7,7 +7,11 @@ class Parser():
         super().__init__()
 
         soup = BeautifulSoup(response.text, "html.parser")  # Parse HTML Page
-        self.title = soup.title.string
+        try:
+            self.title = soup.find('title').text
+        except:
+            self.title='N/A'
+
         body = soup.find('body')
         for a in soup.findAll('a'):
             try:
