@@ -25,13 +25,13 @@ SECRET_KEY = 'gvdrx)ywam693bc$o^b0z=jjey8-tjah13szsr_5035v+e59da'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.deweiliu.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['.davecutting.uk', '.deweiliu.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-        'repeater.apps.RepeaterConfig',
+    'repeater.apps.RepeaterConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
