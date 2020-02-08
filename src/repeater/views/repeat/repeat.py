@@ -12,5 +12,5 @@ def repeat(url):
 
     webpage['title']=p.get_title()
     webpage['body']=p.get_body()
-    webpage['message']="At %s, the following content was retrieved from %s"%(p.get_time(),url)
+    webpage['info']="Time: %s\nURL: %s"%(p.get_time(),url)
     return webpage
