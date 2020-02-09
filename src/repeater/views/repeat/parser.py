@@ -29,12 +29,13 @@ class Parser():
             # change the relative link to obsulate link of the origin domain
             p = parse.urlparse(url)
             link = p.scheme+"://"+p.netloc+link
-
-        # URL encoding
-        link = parse.quote(link, safe='')
-        # change to relative link to this app
-        link = "/?url="+link
-        print(link)
+        
+        if(link.startswith('http')):
+            # if it is a http or https link, it will be directed to this application
+            
+            link = parse.quote(link, safe='') # URL encoding
+            link = "/?url="+link
+            print(link)
         return link
 
     def get_body(self):
