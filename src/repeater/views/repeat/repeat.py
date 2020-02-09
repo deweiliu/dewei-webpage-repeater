@@ -16,6 +16,8 @@ def repeat(url):
         p = parser.Parser(response)
         webpage['title'] = p.get_title()
         webpage['body'] = p.get_body()
+        webpage['head'] = p.get_head()
+        
 
     else:
         webpage['title'] = "N/A"
