@@ -1,14 +1,37 @@
 {% extends "repeater/components/component.html" %}
+
+{% block header %}
+<style>
+    .separator {
+        border: 3px solid #000;
+        width: 100%;
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+
+    }
+</style>
+{% endblock %}
+
+
 {% block title %}
 Webpage Content
-<p style="      border: 1px dashed #000;
-width: 100%;
-margin: auto;
-margin-top: 2%;
-margin-bottom: 2%;"></p>
 {% endblock %}
+
 {% block content %}
-{% autoescape off %}
-{{body}}
-{% endautoescape %}
+<p class="separator"></p>
+<p style="  text-align: center;">
+    <strong>
+        WE TAKE NO RESPONSIBILITY FOR THE CONTENT BELOW THIS!
+        </br>
+        PLEASE OBEY THE LAW OF YOUR LOCAL AUTHORITY!
+    </strong>
+</p>
+<p class="separator"></p>
+
+<div>
+    {% autoescape off %}
+    {{body}}
+    {% endautoescape %}
+</div>
 {% endblock %}

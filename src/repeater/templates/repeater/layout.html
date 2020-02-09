@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <title>Dewei Webpage Repeater - {{title}}</title>
     <script type="text/javascript"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-    <h1><a href="/">Dewei Webpage Repeater</a></h1>
+    <div class="w3-container">
+        <h1><a href="/">Dewei Webpage Repeater</a></h1>
 
-    <div style="top: 8px;right: 16px;position: absolute;">
-        <img src="https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png">
+        <div style="top: 8px;right: 16px;position: absolute;">
+            <img src="https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png">
+        </div>
+
+        {% block body %}
+        {% endblock %}
     </div>
-
-    {% block body %}
-    {% endblock %}
-
 </body>
 
 </html>
