@@ -12,7 +12,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag deweiliu/dewei-webpage-repeater:latest
+        current_time=$(date +%s)
+        docker build . --file Dockerfile --tag deweiliu/dewei-webpage-repeater:latest --build-arg build_time=${current_time}
         docker login --username deweiliu --password ${{ secrets.docker_access }}
         docker push deweiliu/dewei-webpage-repeater:latest
         docker logout

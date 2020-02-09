@@ -1,7 +1,6 @@
 
 import requests
-import time
-
+from repeater.views import get_time  
 
 class Request():
     def __init__(self, url):
@@ -12,7 +11,7 @@ class Request():
             self.valid = True
         except:
             print("URL not valid %s" % url)
-        self.time = (time.strftime("GMT %d %b %Y, %H:%M:%S", time.gmtime()))
+        self.time = get_time.string()
 
         if(self.valid):
             status_code = self.response.status_code

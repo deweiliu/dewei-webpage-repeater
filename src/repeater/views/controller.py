@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
 from repeater.views.repeat import repeat
+import os
+from repeater.views import get_time
 
 
 def controller(request):
@@ -12,6 +14,11 @@ def controller(request):
         webpage = repeat.repeat(url)
         html = 'repeater/repeat.html'
 
+    build_time = os.getenv('build_time')
+    webpage['build_time'] = get_time.string(build_time)
+
+    deploy_time = os.getenv('deploy_time')
+    webpage['deploy_time'] = get_time.string(deploy_time)
 
     template = loader.get_template(html)
     return HttpResponse(template.render(webpage, request))

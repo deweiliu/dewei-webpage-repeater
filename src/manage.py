@@ -2,10 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import time
+from repeater.views import get_time
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webpage_repeater.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          'webpage_repeater.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -18,4 +21,7 @@ def main():
 
 
 if __name__ == '__main__':
+    # record deployment time
+    os.environ['deploy_time'] = get_time.value()
+    
     main()

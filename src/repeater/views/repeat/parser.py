@@ -40,10 +40,12 @@ class Parser():
         for img in body.findAll('img'):
             try:
                 link = img['src']
-                new_link = Parser.change_link(url, link,link2myself=False)
+                print(link)
+                new_link = Parser.change_link(url, link, link2myself=False)
+                print(new_link)
                 img['src'] = new_link
             except:
-                pass            
+                pass
         return body
 
     @staticmethod
@@ -74,24 +76,24 @@ class Parser():
 
     @staticmethod
     def change_link(url, href, link2myself=True):
-        link = href
-        if(link.startswith('#')):
-            return link
 
-        if ("//" not in link):
+        if(href.startswith('#')):
+            return href
+
+        if ("//" not in href):
             # If this is not an absolute path
-            if(not link.startswith('/')):
-                link = '/%s' % link  # add /
+            if(not href.startswith('/')):
+                href = '/%s' % href  # add /
             p = parse.urlparse(url)
-            link = p.scheme+"://"+p.netloc+link
+            href = p.scheme+"://"+p.netloc+href
 
         if(link2myself):
-            if(link.startswith('http')):
+            if(href.startswith('http')):
                 # if it is a http or https link, it will be redirected to this application
 
-                link = parse.quote(link, safe='')  # URL encoding
-                link = "/?url="+link
-        return link
+                href = parse.quote(href, safe='')  # URL encoding
+                href = "/?url="+href
+        return href
 
     def get_body(self):
         return self.body
