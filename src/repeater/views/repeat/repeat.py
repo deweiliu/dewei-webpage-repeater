@@ -16,13 +16,12 @@ def repeat(url):
         p = parser.Parser(response)
         webpage['title'] = p.get_title()
         webpage['body'] = p.get_body()
-        webpage['status'] = "Success"
 
     else:
-        webpage['status'] = "Error. Cannot resolve the URL"
         webpage['title'] = "N/A"
         webpage['body'] = "N/A"
 
+    webpage['status'] = r.get_status()
     webpage['gmt_time'] = r.get_time()
     webpage['url'] = url
     return webpage

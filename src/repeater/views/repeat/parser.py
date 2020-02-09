@@ -32,7 +32,7 @@ class Parser():
         
         if(link.startswith('http')):
             # if it is a http or https link, it will be directed to this application
-            
+
             link = parse.quote(link, safe='') # URL encoding
             link = "/?url="+link
             print(link)
@@ -43,3 +43,4 @@ class Parser():
 
     def get_title(self):
         return self.title
+    
