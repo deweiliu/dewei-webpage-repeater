@@ -5,22 +5,22 @@ from repeater.views.repeat import parser
 from repeater.views import get_time
 
 def repeat(url):
+    webpage = dict()
+    webpage['title'] = "N/A"
+    webpage['body'] = "N/A"    
     start = float(get_time.value())
 
     url = complete_url.complete(url)
-    webpage = dict()
     r = request.Request(url)
-
     if(r.is_valid()):
-        response = r.get_response()
-        p = parser.Parser(response)
-        webpage['title'] = p.get_title()
-        webpage['body'] = p.get_body()
-        webpage['head'] = p.get_head()
-
-    else:
-        webpage['title'] = "N/A"
-        webpage['body'] = "N/A"
+        try:
+            response = r.get_response()
+            p = parser.Parser(response)
+            webpage['title'] = p.get_title()
+            webpage['body'] = p.get_body()
+            webpage['head'] = p.get_head()
+        except:
+            pass
 
     finish = float(get_time.value())
     processing_time = "%sms" % ((finish-start)*1000)

@@ -23,7 +23,7 @@ class Request():
 
             status_code = self.response.status_code
             status_description = Request.code2text(status_code)
-            self.status = "%s. Status Code %s" % (
+            self.status = "%sStatus Code %s" % (
                 status_description, status_code)
         else:
             self.status = "Error. No response from the requested server."
@@ -40,7 +40,13 @@ class Request():
 
     @staticmethod
     def code2text(status_code):
-        description = requests.status_codes._codes[status_code][0]
+        print(type(status_code))
+        print((status_code))
+        try:
+            description = requests.status_codes._codes[status_code][0]
+            description+=". "
+        except KeyError:
+            description = ""
         return str(description).upper()
 
     def get_status(self):
