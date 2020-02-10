@@ -22,6 +22,6 @@ def main():
 
 if __name__ == '__main__':
     # record deployment time
-    os.environ['deploy_time'] = str(get_time.value())
+    os.environ['deploy_time'] = get_time.value()
 
     main()
