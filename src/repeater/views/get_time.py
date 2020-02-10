@@ -6,6 +6,6 @@ def value():
     return str(time.time())
 
 def string(time_value=time.gmtime()):
-    time_value = int(time_value)
+    time_value = int(float(time_value))
     time_object = datetime.fromtimestamp(time_value)
     return time_object.strftime("%A %d %B %Y %H:%M:%S GMT")

@@ -14,7 +14,7 @@ def controller(request):
         webpage = repeat.repeat(url)
         html = 'repeater/repeat.html'
 
-    build_time = os.getenv('build_time')
+    build_time = os.getenv('build_time',default=0)
     webpage['build_time'] = get_time.string(build_time)
 
     deploy_time = os.getenv('deploy_time')
