@@ -4,7 +4,9 @@ Webpage Information
 {% endblock %}
 {% block content %}
 <p><strong>Time: </strong>{{gmt_time}}</p>
-<p><strong>Original URL: </strong><a href="{{url}}">{{url}}</a></p>
+<p><strong>Target URL: </strong><a href="{{url}}">{{url}}</a></p>
+<p><strong>Target Server Response Time: </strong>{{response_time}}</p>
 <p><strong>Status: </strong>{{status}}</p>
 <p><strong>Page Title: </strong>{{title}}</p>
+<p><strong>Total Processing Time: </strong>{{processing_time}}</p>
 {% endblock %}

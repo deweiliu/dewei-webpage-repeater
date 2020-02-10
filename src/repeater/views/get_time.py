@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def value():
-    return str(time.gmtime())
+    return str(time.time())
 
 
 def string(time_value=None):
