@@ -1,28 +1,16 @@
 from django.http import HttpResponse
 from django.template import loader
+
 from repeater.views.repeat import repeat
-import os
-from repeater.views import get_time
+from repeater.views import home
 
 
 def controller(request):
     url = request.GET.get('url')
-    webpage = dict()
-    if(url == None):
-        html = 'repeater/home.html'
+    if(url == None or url == ''):
+        response = home.home()
     else:
-        webpage = repeat.repeat(url)
-        html = 'repeater/repeat.html'
+        response = repeat.repeat(url)
 
-    build_time = os.getenv('build_time', default=0)
-    webpage['build_time'] = get_time.string(build_time)
-
-    deploy_time = os.getenv('deploy_time')
-    webpage['deploy_time'] = get_time.string(deploy_time)
-
-    t1 = os.getenv('v1')
-    t2 = os.getenv('WEBSITES_ENABLE_APP_SERVICE_STORAGE')
-    webpage['testing'] = "%s -- %s" % (t1, t2)
-
-    template = loader.get_template(html)
-    return HttpResponse(template.render(webpage, request))
+    template = loader.get_template(response['html'])
+    return HttpResponse(template.render(response['variables'], request))
