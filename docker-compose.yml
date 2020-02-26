@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  best-friends:
+  repeater:
     image: deweiliu/dewei-webpage-repeater:latest
     build:
       context: .
