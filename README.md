@@ -5,16 +5,18 @@ A Live demo is available at [repeater.deweiliu.com](http://repeater.deweiliu.com
 
 ## Check out the app
 ### Prerequisite
-* Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/)
-### Execution
-Require root previleges
+* Install [Docker Compose](https://docs.docker.com/compose/install/)
 
-    sudo su
-Build the application and run it in background
+### Execution
+Verify your Docker Compose installation
+
+    docker-compose --version
+
+Build and run the application
 
     docker-compose up -d
 
-Wait for a couple minutes until the server fully starts up. Then open http://localhost/ with a browser
+Wait for a while until the server fully starts up. Then open http://localhost/ with a browser.
 
 To stop the application
 
