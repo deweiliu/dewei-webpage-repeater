@@ -19,7 +19,7 @@ class Request():
         self.time_stamp = get_time.string(finish)
 
         if(self.valid):
-            self.response_time = "%sms" % ((finish-start)*1000)
+            self.response_time = (finish-start)*1000
 
             status_code = self.response.status_code
             status_description = Request.code2text(status_code)

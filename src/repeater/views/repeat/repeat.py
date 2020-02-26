@@ -30,10 +30,8 @@ def repeat(url):
             pass
 
     finish = float(get_time.value())
-    processing_time = "%sms" % ((finish-start)*1000)
-    variables['processing_time'] = processing_time
-
-    variables['response_time'] = r.get_response_time()
+    variables['processing_time'] = "%.0fms" % ((finish-start)*1000)
+    variables['response_time'] = "%.0fms" % (r.get_response_time())
     variables['status'] = r.get_status()
     variables['gmt_time'] = r.get_time()
     variables['url'] = url
