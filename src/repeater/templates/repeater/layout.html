@@ -6,8 +6,6 @@
     <title>Dewei Webpage Repeater - {{title}}</title>
     <link rel="icon" type="image/png" href="https://deweiliu.com/images/favicon.png" />
     <meta name="theme-color" content="#40B1FA">
-
-
     <script type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -22,14 +20,12 @@
 <body>
     <div class="w3-container">
         <h1><a href="/">Dewei Webpage Repeater</a></h1>
-
-        <div style="top: 8px;right: 16px;position: absolute;">
-            <img src="https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png">
-        </div>
-
         {% block body %}
         {% endblock %}
     </div>
+
+    {%include "repeater/components/copyright.html"%}
+
 </body>
 
 </html>
