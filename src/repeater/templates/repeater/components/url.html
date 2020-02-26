@@ -8,8 +8,13 @@ URL
     <input type="text" name="url" value="{{url}}" style="height:5%; width:80%;">
     </br>
     </br>
-    <input type="submit" value="OK"
+    <input type="submit" value="OK" onclick="document.getElementById('loading').textContent = '  Loading...';"
         style="height:5%; width:10%; align-items: flex-start;  background-color: whitesmoke;font-size: larger;">
+    <p style="display:inline" id="loading"></p>
 </form>
 
+
+<script>
+    
+</script>
 {% endblock %}
