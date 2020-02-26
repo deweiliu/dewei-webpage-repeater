@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Compose CI
 
 on: [push]
 
@@ -13,7 +13,7 @@ jobs:
     - name: Build the Docker image
       run: |
         current_time=$(date +%s)
-        docker build . --file Dockerfile --tag deweiliu/dewei-webpage-repeater:latest --build-arg build_time=${current_time}
+        docker-compose build --build-arg build_time=${current_time}
         docker login --username deweiliu --password ${{ secrets.docker_access }}
-        docker push deweiliu/dewei-webpage-repeater:latest
+        docker-compose push
         docker logout
