@@ -40,9 +40,7 @@ class Parser():
         for img in body.findAll('img'):
             try:
                 link = img['src']
-                print(link)
                 new_link = Parser.change_link(url, link, link2myself=False)
-                print(new_link)
                 img['src'] = new_link
             except:
                 pass

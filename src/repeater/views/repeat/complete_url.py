@@ -5,5 +5,4 @@ def complete(url):
     p = parse.urlparse(url)
     url=p.geturl()
     
-    print(url)
     return url

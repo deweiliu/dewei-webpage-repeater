@@ -40,11 +40,9 @@ class Request():
 
     @staticmethod
     def code2text(status_code):
-        print(type(status_code))
-        print((status_code))
         try:
             description = requests.status_codes._codes[status_code][0]
-            description+=". "
+            description += ". "
         except KeyError:
             description = ""
         return str(description).upper()
