@@ -6,11 +6,11 @@
 FROM python:3.8
 
 LABEL Name=dewei-webpage-repeater Version=0.0.1
-COPY ./src .
+COPY requirements.txt ./requirements.txt
 RUN python3 -m pip install -r requirements.txt
-
-
 EXPOSE 8000
+
+COPY . .
 
 # record the build time
 ARG build_time=0
