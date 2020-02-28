@@ -14,7 +14,7 @@ Verify your Docker Compose installation
 
 Build and run the application
 
-    docker-compose up -d
+    docker-compose up --build -d
 
 Wait for a while until the server fully starts up. Then open http://localhost/ with a browser.
 
