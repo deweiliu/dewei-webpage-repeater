@@ -4,12 +4,14 @@ on: [push]
 
 jobs:
 
-  build:
+  build-update:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Check out repository
+      uses: actions/checkout@v1
+
     - name: Build the Docker image
       run: |
         current_time=$(date +%s)
@@ -17,3 +19,12 @@ jobs:
         docker login --username deweiliu --password ${{ secrets.docker_access }}
         docker-compose push
         docker logout
+
+    - name: Login via Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Update App service on Azure
+      run: |
+        az webapp restart --name webpage-repeater --resource-group app-services 
