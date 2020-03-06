@@ -5,7 +5,7 @@ URL
 {% block content %}
 <p>Enter the URL below to view a webpage</p>
 <form action="/" method="get">
-    <input type="text" name="url" value="{{url}}" style="height:5%; width:80%;">
+    <input type="text" name="url" value="{{url}}" placeholder="{{default_url}}" style="height:5%; width:80%;">
     </br>
     </br>
     <input type="submit" value="OK" onclick="document.getElementById('loading').textContent = '  Loading...';"

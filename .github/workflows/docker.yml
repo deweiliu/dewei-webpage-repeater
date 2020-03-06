@@ -27,4 +27,9 @@ jobs:
 
     - name: Update App service on Azure
       run: |
-        az webapp restart --name webpage-repeater --resource-group app-services 
+        az webapp restart --name webpage-repeater --resource-group app-services
+
+    - name: Logout Azure
+      run: |
+        az logout
+        

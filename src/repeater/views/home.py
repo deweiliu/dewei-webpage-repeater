@@ -2,7 +2,7 @@ from repeater.views import get_time
 import os
 
 
-def home():
+def home(default_url):
     result = dict()
 
     result['html'] = 'repeater/home.html'
@@ -13,6 +13,8 @@ def home():
     deploy_time = os.getenv('deploy_time')
     variables['deploy_time'] = get_time.string(deploy_time)
 
-    result['variables']=variables
-    
+    variables['default_url'] = default_url
+
+    result['variables'] = variables
+
     return result
