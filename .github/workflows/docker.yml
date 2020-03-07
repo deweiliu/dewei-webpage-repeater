@@ -26,7 +26,7 @@ jobs:
       - name: Build and upload Docker image
         run: |
           docker-compose build --build-arg build_time=${current_time}
-          docker login --username ${docker_username} --password ${docker_password}
+          docker login --username ${docker_username} --password ${{ secrets.docker_access }}
           docker-compose push
           docker logout
 
