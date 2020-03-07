@@ -3,33 +3,42 @@ name: Docker Compose CI
 on: [push]
 
 jobs:
-
   build-update:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v1
+      - name: Set up variables
+        run: |
+          current_time=$(date +%s)
 
-    - name: Build the Docker image
-      run: |
-        current_time=$(date +%s)
-        docker-compose build --build-arg build_time=${current_time}
-        docker login --username deweiliu --password ${{ secrets.docker_access }}
-        docker-compose push
-        docker logout
+          # Docker
+          docker_username=deweiliu
+          docker_password=${{ secrets.docker_access }}
 
-    - name: Login via Azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+          # Azure
+          webapp_name=webpage-repeater
+          resource_group=app-services
+          azure_credentials=${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Update App service on Azure
-      run: |
-        az webapp restart --name webpage-repeater --resource-group app-services
+      - name: Check out repository
+        uses: actions/checkout@v1
 
-    - name: Logout Azure
-      run: |
-        az logout
-        
+      - name: Build and upload Docker image
+        run: |
+          docker-compose build --build-arg build_time=${current_time}
+          docker login --username ${docker_username} --password ${docker_password}
+          docker-compose push
+          docker logout
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${azure_credentials}
+
+      - name: Update App service on Azure
+        run: |
+          az webapp restart --name ${webapp_name} --resource-group ${resource_group}
+
+      - name: Logout Azure
+        run: |
+          az logout

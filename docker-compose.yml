@@ -2,10 +2,10 @@ version: "3"
 
 services:
   repeater:
-    image: deweiliu/dewei-webpage-repeater:latest
+    image: deweiliu/webpage-repeater:latest
     build:
       context: ./src
       dockerfile: Dockerfile
     ports:
       - 80:8000
-    container_name: dewei-webpage-repeater-container
+    container_name: webpage-repeater-container
