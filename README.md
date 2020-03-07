@@ -1,4 +1,4 @@
-# [Dewei Webpage Repeater](http://repeater.deweiliu.com)
+# [Webpage Repeater](http://repeater.deweiliu.com)
 
 ## Live Demo
 A Live demo is available at [repeater.deweiliu.com](http://repeater.deweiliu.com)
