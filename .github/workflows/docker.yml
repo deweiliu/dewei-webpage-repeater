@@ -12,14 +12,9 @@ jobs:
 
       - name: Build and upload Docker image
         run: |
-          # variables
           current_time=$(date +%s)
-          docker_username=deweiliu
-          docker_password=${{ secrets.docker_access }}
-
-          # execute
           docker-compose build --build-arg build_time=${current_time}
-          docker login --username ${docker_username} --password ${docker_password}
+          docker login --username deweiliu --password ${{ secrets.docker_access }}
           docker-compose push
           docker logout
 
@@ -30,12 +25,7 @@ jobs:
 
       - name: Update App service on Azure
         run: |
-          # variables
-          webapp_name=webpage-repeater
-          resource_group=app-services
-
-          # execute
-          az webapp restart --name ${webapp_name} --resource-group ${resource_group}
+          az webapp restart --name webpage-repeater --resource-group app-services
 
       - name: Logout Azure
         run: |
