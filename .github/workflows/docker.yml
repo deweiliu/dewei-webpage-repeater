@@ -8,6 +8,8 @@ jobs:
 
     steps:
       - name: Set up variables
+        run: |
+          echo "Setting up variables"
         env:
           current_time: $(date +%s)
           docker_username: deweiliu
