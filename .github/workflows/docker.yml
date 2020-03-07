@@ -12,8 +12,6 @@ jobs:
           current_time=$(date +%s)
 
           # Docker
-          docker_username=deweiliu
-          docker_password=${{ secrets.docker_access }}
 
           # Azure
           webapp_name=webpage-repeater
@@ -25,8 +23,13 @@ jobs:
 
       - name: Build and upload Docker image
         run: |
+          docker_username=deweiliu
+          docker_password=${{ secrets.docker_access }}
+          echo ${current_time}
+          echo ${docker_username}
+          
           docker-compose build --build-arg build_time=${current_time}
-          docker login --username ${docker_username} --password ${{ secrets.docker_access }}
+          docker login --username ${docker_username} --password ${docker_password}
           docker-compose push
           docker logout
 
